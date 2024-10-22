@@ -2,6 +2,7 @@
 @param PostsPage page
 
 @template.layout.page(
+page = page,
     content = @`
         <div class="mx-auto p-4 py-md-5">
         <main>

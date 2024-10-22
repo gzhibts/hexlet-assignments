@@ -12,8 +12,10 @@
         <title>Hexlet Javalin Example</title>
     </head>
     <body>
+    <p>${page == null}</p>
         @if(page != null && page.getFlash() != null)
             <p>${page.getFlash()}</p>
+            <p>11</p>
         @endif
         ${content}
     </body>
