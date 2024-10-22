@@ -1,4 +1,4 @@
-package io.hexlet.servlet;
+package exercise.servlet;
 
 import java.io.IOException;
 
@@ -14,7 +14,14 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        var message = "Hello," + req.getAttribute("name").toString() + "!";
+        var name = req.getParameter("name");
+        if (name != null) {
+            name = name.toString();
+        }
+        else {
+            name = "Guest";
+        }
+        var message = "Hello, " +  name + "!";
         req.setAttribute("message", message);
 
         req.getRequestDispatcher("/WEB-INF/hello.jsp").forward(req, resp);
