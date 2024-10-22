@@ -19,8 +19,7 @@ public class UsersController {
     }
 
     // BEGIN
-    public static void create(Context ctx) {
-
+    public static void create(Context ctx) throws Exception {
         var firstName = StringUtils.capitalize(ctx.formParam("firstName"));
         var lastName = StringUtils.capitalize(ctx.formParam("lastName"));
         var email = ctx.formParam("email").trim().toLowerCase();
@@ -33,10 +32,9 @@ public class UsersController {
 
         ctx.cookie("token", token);
         ctx.redirect(NamedRoutes.userPath(user.getId()));
-
     }
 
-    public static void show(Context ctx) {
+    public static void show(Context ctx) throws Exception {
         var id = ctx.pathParamAsClass("id", Long.class).get();
         var token = ctx.cookie("token") == null ? null : ctx.cookie("token");
         var user = UserRepository.find(id)
