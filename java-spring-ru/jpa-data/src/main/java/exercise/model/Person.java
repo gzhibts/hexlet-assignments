@@ -11,6 +11,8 @@ import lombok.Setter;
 // BEGIN
 @Entity
 @Table(name = "persons")
+@Getter
+@Setter
 public class Person {
 
     @Id
